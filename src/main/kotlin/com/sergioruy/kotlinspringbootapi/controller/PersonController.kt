@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PutMapping
@@ -41,6 +42,12 @@ class PersonController(private val personServiceImpl: PersonServiceImpl) {
     @PutMapping("/{id}")
     fun update(@PathVariable id: Long, @RequestBody updatePersonRequestDto: UpdatePersonRequestDto): ResponseEntity<PersonResponseDto> {
         return ResponseEntity.ok(this.personServiceImpl.update(updatePersonRequestDto))
+    }
+
+    @DeleteMapping("/{id}")
+    fun deleteById(@PathVariable id: Long): ResponseEntity<Unit> {
+        this.personServiceImpl.deleteById(id)
+        return ResponseEntity.noContent().build()
     }
 
     companion object {
