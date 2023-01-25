@@ -1,4 +1,5 @@
 package com.sergioruy.kotlinspringbootapi.mapper
 
-interface Mapper {
+interface Mapper <A, B>{
+    fun mapper(source: A): B
 }

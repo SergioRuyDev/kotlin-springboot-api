@@ -1,4 +1,3 @@
 package com.sergioruy.kotlinspringbootapi.dto
 
-class PersonRequestDto {
-}
+data class PersonRequestDto (val firstName:String, val lastName:String, val jobPosition:String)
