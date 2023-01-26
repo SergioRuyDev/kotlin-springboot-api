@@ -41,7 +41,7 @@ class PersonController(private val personServiceImpl: PersonServiceImpl) {
 
     @PutMapping("/{id}")
     fun update(@PathVariable id: Long, @RequestBody updatePersonRequestDto: UpdatePersonRequestDto): ResponseEntity<PersonResponseDto> {
-        return ResponseEntity.ok(this.personServiceImpl.update(updatePersonRequestDto))
+        return ResponseEntity.ok(this.personServiceImpl.update(id, updatePersonRequestDto))
     }
 
     @DeleteMapping("/{id}")

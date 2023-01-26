@@ -28,9 +28,9 @@ class PersonServiceImpl(private val personRepository: PersonRepository,
         )
     }
 
-    override fun update(updatePersonRequestDto: UpdatePersonRequestDto): PersonResponseDto {
-        val person = this.findPersonById(updatePersonRequestDto.id) ?:
-        throw IllegalStateException("${updatePersonRequestDto.id} not found")
+    override fun update(id: Long, updatePersonRequestDto: UpdatePersonRequestDto): PersonResponseDto {
+        val person = this.findPersonById(id) ?:
+        throw IllegalStateException("Id with $id was not found")
 
         return this.saveOrUpdate(person.apply {
             this.firstName = updatePersonRequestDto.firstName

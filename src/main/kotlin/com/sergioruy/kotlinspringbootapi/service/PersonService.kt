@@ -10,6 +10,6 @@ interface PersonService {
     fun findById(id:Long): PersonResponseDto?
     fun findAll(pageable: Pageable): Page<PersonResponseDto>
     fun save(addPerson: PersonRequestDto): PersonResponseDto
-    fun update(updatePersonRequestDto: UpdatePersonRequestDto): PersonResponseDto
+    fun update(id: Long, updatePersonRequestDto: UpdatePersonRequestDto): PersonResponseDto
     fun deleteById(id: Long)
 }
